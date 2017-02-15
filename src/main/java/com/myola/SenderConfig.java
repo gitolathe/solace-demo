@@ -1,5 +1,6 @@
 package com.myola;
 
+import com.solacesystems.integration.spring.MessageProducer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,7 +10,6 @@ import org.springframework.jndi.JndiTemplate;
 
 import javax.jms.ConnectionFactory;
 import javax.jms.Destination;
-import javax.jms.MessageProducer;
 
 /**
  * Created by olath on 2017-02-14.
@@ -38,9 +38,7 @@ public class SenderConfig {
     }
 
     @Bean("")
-    public MessageProducer createMessageProducer() {
-        final MessageProducer producer = new com.solacesystems.integration.spring.MessageProducer();
-
-        return producer;
+    public SolaceProducer createMessageProducer(JmsTemplate jmsTemplate) {
+        return new SolaceProducer();
     }
 }
