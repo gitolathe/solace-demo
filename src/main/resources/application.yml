@@ -1,0 +1,13 @@
+
+solace:
+  url: smf://192.168.137.67:55555
+  user: test
+  vpn: default
+  jndi:
+    name: /jms/cf/default
+  connector:
+    cache:
+      size: 10
+
+sender:
+  destination: JNDI/Q/requests
